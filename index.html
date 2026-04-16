@@ -175,80 +175,90 @@
       text-transform: uppercase;
     }
 
+    /* ── Pipeline ── */
     .pipeline-wrap {
       overflow-x: auto;
-      padding-bottom: .5rem;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: .75rem;
     }
 
     .pipeline {
       display: flex;
-      align-items: stretch;
-      gap: .75rem;
-      min-width: 1100px;
+      align-items: flex-start;
+      gap: 0;
+      min-width: 900px; /* force horizontal on all desktop viewports */
+    }
+
+    /* arrow connectors between cards */
+    .pipeline-arrow {
+      flex: 0 0 28px;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--two-blue);
+      font-size: 1.1rem;
+      opacity: .55;
+      padding-top: 2.4rem; /* aligns with card body, below top-label */
     }
 
     .pipeline-stage {
       flex: 1 1 0;
-      min-width: 150px;
+      min-width: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       text-align: center;
-      /* equal height: stretch so all columns are same total height */
     }
 
     .pipeline-top-label {
-      font-size: .78rem;
+      font-size: .7rem;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .1em;
       color: var(--two-blue);
-      min-height: 2.2rem;
-      margin-bottom: .4rem;
-      font-weight: 600;
+      height: 2.4rem;          /* fixed — keeps all boxes top-aligned */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      padding: 0 .25rem;
     }
 
+    /* the colored card */
     .pipeline-box {
       color: #fff;
-      width: 100%;
-      padding: 1rem .75rem;
-      height: 170px; /* fixed height — all boxes identical */
+      padding: 1.25rem .75rem 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
-      flex-shrink: 0;
+      justify-content: flex-start; /* icon always at top */
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      /* no fixed height — content dictates, but we unify with grid rows below */
     }
 
     .pipeline-box i {
-      font-size: 2rem;
-      margin-bottom: .7rem;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+      margin-bottom: .55rem;
+      line-height: 1;
     }
 
     .pipeline-stage-title {
-      font-size: .98rem;
-      line-height: 1.35;
+      font-size: .82rem;
+      line-height: 1.3;
       text-transform: uppercase;
-      letter-spacing: .03em;
+      letter-spacing: .04em;
       font-weight: 700;
+      flex-shrink: 0;
     }
 
     .pipeline-facilities {
       list-style: none;
       padding: 0;
-      margin: .8rem 0 0;
-      font-size: .9rem;
-      color: #243042;
+      margin: .65rem 0 0;
+      font-size: .78rem;
+      color: rgba(255,255,255,.85); /* white on colored bg */
       line-height: 1.5;
-      flex: 1; /* takes remaining vertical space so all stages align at top */
-    }
-
-    .pipeline-arrow {
-      align-self: center;
-      color: var(--two-blue);
-      font-size: 1.5rem;
-      flex: 0 0 auto;
-      margin-top: 2.2rem;
     }
 
     .care-card,
@@ -304,24 +314,10 @@
       color: rgba(255,255,255,.82);
     }
 
+    /* On small screens: horizontal scroll, don't collapse to column */
     @media (max-width: 991.98px) {
       .pipeline {
-        min-width: 100%;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .pipeline-stage {
-        min-width: 100%;
-      }
-
-      .pipeline-arrow {
-        margin-top: 0;
-        transform: rotate(90deg);
-      }
-
-      .pipeline-top-label {
-        min-height: auto;
+        min-width: 820px; /* keep horizontal, let wrapper scroll */
       }
     }
 
@@ -393,77 +389,89 @@
         </div>
         <div class="pipeline-wrap">
           <div class="pipeline">
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">Treatment on Demand</div>
               <div class="pipeline-box" style="background: var(--stage-1);">
                 <i class="bi bi-person-walking"></i>
                 <div class="pipeline-stage-title">Addiction &amp; Homelessness</div>
+                <ul class="pipeline-facilities">
+                  <li>Entry point</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Entry point</li>
-              </ul>
             </div>
+
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
               <div class="pipeline-box" style="background: var(--stage-2);">
                 <i class="bi bi-heart-pulse"></i>
                 <div class="pipeline-stage-title">Detox &amp; Drug Free Shelter</div>
+                <ul class="pipeline-facilities">
+                  <li>Harbor Light Wellness Center</li>
+                  <li>Hope House</li>
+                  <li>Eleanor Fagan Stabilization Center</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Harbor Light Wellness Center</li>
-                <li>Hope House</li>
-                <li>Eleanor Fagan Stabilization Center<br>(Westside/TSA)</li>
-              </ul>
             </div>
+
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
               <div class="pipeline-box" style="background: var(--stage-3);">
                 <i class="bi bi-house-heart"></i>
-                <div class="pipeline-stage-title">Drug Treatment &amp; Women's Recovery Program</div>
+                <div class="pipeline-stage-title">Drug Treatment &amp; Recovery</div>
+                <ul class="pipeline-facilities">
+                  <li>Harbor Light Residential</li>
+                  <li>Pinehurst Women's Recovery</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Harbor Light Residential Treatment</li>
-                <li>Pinehurst Women's Recovery</li>
-              </ul>
             </div>
+
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
               <div class="pipeline-box" style="background: var(--stage-4);">
                 <i class="bi bi-buildings"></i>
                 <div class="pipeline-stage-title">Recovery Housing</div>
+                <ul class="pipeline-facilities">
+                  <li>Joseph McFee Center</li>
+                  <li>Marina Recovery Housing</li>
+                  <li>Culinary Training Academy</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Joseph McFee Center</li>
-                <li>Marina Recovery Housing</li>
-                <li>Culinary Training Academy</li>
-              </ul>
             </div>
+
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">Optional</div>
               <div class="pipeline-box" style="background: var(--stage-5);">
                 <i class="bi bi-door-open"></i>
                 <div class="pipeline-stage-title">Independent Living</div>
+                <ul class="pipeline-facilities">
+                  <li>Railton Place</li>
+                  <li>James Baldwin Place</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Railton Place</li>
-                <li>James Baldwin Place (Westside/TSA)</li>
-              </ul>
             </div>
+
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-6); color: #1b1b1b;">
-                <i class="bi bi-star-fill"></i>
-                <div class="pipeline-stage-title">Independence</div>
+              <div class="pipeline-box" style="background: var(--stage-6);">
+                <i class="bi bi-star-fill" style="color:#1b1b1b"></i>
+                <div class="pipeline-stage-title" style="color:#1b1b1b">Independence</div>
+                <ul class="pipeline-facilities" style="color:#333">
+                  <li>Alumni Support Network</li>
+                </ul>
               </div>
-              <ul class="pipeline-facilities">
-                <li>Alumni Support Network</li>
-              </ul>
             </div>
+
           </div>
         </div>
       </div>
