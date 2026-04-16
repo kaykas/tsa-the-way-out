@@ -224,41 +224,45 @@
       padding: 0 .25rem;
     }
 
-    /* the colored card */
+    /* the colored card — grid layout locks icon/title/list into equal rows */
     .pipeline-box {
       color: #fff;
-      padding: 1.25rem .75rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start; /* icon always at top */
+      width: 100%;
+      padding: 1rem .6rem;
+      display: grid;
+      grid-template-rows: 2.5rem 3.5rem 1fr; /* icon | title | facilities */
+      align-items: start;
+      justify-items: center;
       box-shadow: 0 8px 20px rgba(0,0,0,.12);
-      /* no fixed height — content dictates, but we unify with grid rows below */
+      height: 200px; /* uniform across all cards */
     }
 
     .pipeline-box i {
-      font-size: 1.75rem;
-      flex-shrink: 0;
-      margin-bottom: .55rem;
+      font-size: 1.6rem;
       line-height: 1;
+      align-self: center;
     }
 
     .pipeline-stage-title {
-      font-size: .82rem;
-      line-height: 1.3;
+      font-size: .78rem;
+      line-height: 1.25;
       text-transform: uppercase;
       letter-spacing: .04em;
       font-weight: 700;
-      flex-shrink: 0;
+      text-align: center;
+      align-self: start;
+      padding: 0 .2rem;
     }
 
     .pipeline-facilities {
       list-style: none;
       padding: 0;
-      margin: .65rem 0 0;
-      font-size: .78rem;
-      color: rgba(255,255,255,.85); /* white on colored bg */
-      line-height: 1.5;
+      margin: 0;
+      font-size: .72rem;
+      color: rgba(255,255,255,.88);
+      line-height: 1.45;
+      text-align: center;
+      align-self: start;
     }
 
     .care-card,
