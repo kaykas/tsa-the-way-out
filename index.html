@@ -184,22 +184,21 @@
 
     .pipeline {
       display: flex;
-      align-items: flex-start;
+      align-items: flex-end; /* bottom-align so arrows sit at card midpoint */
       gap: 0;
-      min-width: 900px; /* force horizontal on all desktop viewports */
+      min-width: 900px;
     }
 
-    /* arrow connectors between cards */
     .pipeline-arrow {
-      flex: 0 0 28px;
-      align-self: stretch;
+      flex: 0 0 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--two-blue);
-      font-size: 1.1rem;
-      opacity: .55;
-      padding-top: 2.4rem; /* aligns with card body, below top-label */
+      font-size: 1rem;
+      opacity: .5;
+      /* vertically center on the card body (card = 210px, label = 36px above) */
+      margin-bottom: calc(210px / 2 - .5rem);
     }
 
     .pipeline-stage {
@@ -211,58 +210,82 @@
       text-align: center;
     }
 
+    /* Label row above box — fixed height so all boxes align */
     .pipeline-top-label {
-      font-size: .7rem;
+      font-size: .65rem;
       text-transform: uppercase;
       letter-spacing: .1em;
       color: var(--two-blue);
-      height: 2.4rem;          /* fixed — keeps all boxes top-aligned */
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      padding: 0 .25rem;
+      padding: 0 .2rem;
+      line-height: 1.2;
     }
 
-    /* the colored card — grid layout locks icon/title/list into equal rows */
+    /* Colored card — flexbox column, icon top, title mid, facilities bottom */
     .pipeline-box {
       color: #fff;
       width: 100%;
-      padding: 1rem .6rem;
-      display: grid;
-      grid-template-rows: 2.5rem 3.5rem 1fr; /* icon | title | facilities */
-      align-items: start;
-      justify-items: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
-      height: 200px; /* uniform across all cards */
+      height: 210px;          /* all cards identical */
+      padding: 1.1rem .6rem .9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.13);
+      overflow: hidden;
     }
 
+    /* Icon — fixed 40px zone */
     .pipeline-box i {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
       line-height: 1;
-      align-self: center;
+      flex: 0 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    /* Title — fixed 56px zone, centered */
     .pipeline-stage-title {
-      font-size: .78rem;
+      flex: 0 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
       line-height: 1.25;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      letter-spacing: .05em;
       font-weight: 700;
       text-align: center;
-      align-self: start;
-      padding: 0 .2rem;
+      padding: 0 .15rem;
+      margin-top: .35rem;
     }
 
+    /* Divider */
+    .pipeline-stage-title::after {
+      display: none;
+    }
+
+    /* Facilities — remaining space, top-aligned */
     .pipeline-facilities {
+      flex: 1;
       list-style: none;
       padding: 0;
-      margin: 0;
-      font-size: .72rem;
-      color: rgba(255,255,255,.88);
-      line-height: 1.45;
+      margin: .4rem 0 0;
+      font-size: .68rem;
+      color: rgba(255,255,255,.85);
+      line-height: 1.5;
       text-align: center;
-      align-self: start;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding-top: .4rem;
     }
 
     .care-card,
@@ -318,10 +341,12 @@
       color: rgba(255,255,255,.82);
     }
 
-    /* On small screens: horizontal scroll, don't collapse to column */
     @media (max-width: 991.98px) {
       .pipeline {
-        min-width: 820px; /* keep horizontal, let wrapper scroll */
+        min-width: 820px;
+      }
+      .pipeline-arrow {
+        margin-bottom: calc(210px / 2 - .5rem);
       }
     }
 
