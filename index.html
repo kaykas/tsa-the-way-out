@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Way Out | The Salvation Army San Francisco</title>
+  <meta name="description" content="The Way Out is The Salvation Army San Francisco's recovery system of care for people facing addiction and homelessness.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --tsa-red: #ED1C2B;
+      --two-red: #D73731;
+      --two-blue: #2D3E63;
+      --body-text: #111111;
+      --light-bg: #f5f5f5;
+      --stage-1: #DA291C;
+      --stage-2: #2ECC71;
+      --stage-3: #1ABC9C;
+      --stage-4: #3498DB;
+      --stage-5: #5B8DB8;
+      --stage-6: #F4B942;
+    }
+
+    body {
+      font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+      color: var(--body-text);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
+      background: #fff;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .display-heading,
+    .section-title {
+      font-family: "trajan-pro-3", Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    h2.section-title {
+      font-size: 1.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .text-two-red { color: var(--two-red); }
+    .text-two-blue { color: var(--two-blue); }
+
+    .btn {
+      border-radius: 0;
+      font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .btn-danger,
+    .btn-primary-donate {
+      background: var(--tsa-red);
+      border-color: var(--tsa-red);
+      color: #fff;
+    }
+
+    .btn-danger:hover,
+    .btn-primary-donate:hover {
+      background: #c91421;
+      border-color: #c91421;
+      color: #fff;
+    }
+
+    .btn-outline-brand {
+      background: #fff;
+      color: var(--tsa-red);
+      border: 1px solid var(--tsa-red);
+    }
+
+    .btn-outline-brand:hover {
+      background: var(--tsa-red);
+      color: #fff;
+      border-color: var(--tsa-red);
+    }
+
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat;
+      background-color: #000;
+      color: #fff;
+      padding: 7rem 0 6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .hero .lead {
+      font-size: 1.15rem;
+      max-width: 850px;
+      margin-bottom: 1.75rem;
+      color: rgba(255,255,255,.93);
+    }
+
+    .hero-supporting-stat {
+      font-size: 1rem;
+      color: rgba(255,255,255,.9);
+      margin-top: 1rem;
+    }
+
+    .stats-bar {
+      background: #fff;
+      margin-top: -2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-wrap {
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .stat-tile {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      height: 100%;
+      background: #fff;
+    }
+
+    .stat-tile i {
+      font-size: 1.8rem;
+      color: var(--tsa-red);
+      display: block;
+      margin-bottom: .75rem;
+    }
+
+    .stat-number {
+      font-size: 1.9rem;
+      line-height: 1.1;
+      color: var(--two-blue);
+      font-family: "trajan-pro-3", Georgia, serif;
+      font-weight: 500;
+      margin-bottom: .35rem;
+    }
+
+    .stat-label {
+      font-size: .95rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .quote-section {
+      background: var(--light-bg);
+    }
+
+    blockquote {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    blockquote footer {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .pipeline-wrap {
+      overflow-x: auto;
+      padding-bottom: .5rem;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+      gap: .75rem;
+      min-width: 1100px;
+    }
+
+    .pipeline-stage {
+      flex: 1 1 0;
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .pipeline-top-label {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--two-blue);
+      min-height: 2.2rem;
+      margin-bottom: .4rem;
+      font-weight: 600;
+    }
+
+    .pipeline-box {
+      color: #fff;
+      width: 100%;
+      padding: 1rem .75rem;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+
+    .pipeline-box i {
+      font-size: 2rem;
+      margin-bottom: .7rem;
+    }
+
+    .pipeline-stage-title {
+      font-size: .98rem;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      font-weight: 700;
+    }
+
+    .pipeline-facilities {
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0 0;
+      font-size: .9rem;
+      color: #243042;
+      line-height: 1.5;
+    }
+
+    .pipeline-arrow {
+      align-self: center;
+      color: var(--two-blue);
+      font-size: 1.5rem;
+      flex: 0 0 auto;
+      margin-top: 2.2rem;
+    }
+
+    .care-card,
+    .serve-card,
+    .why-card {
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 1.5rem;
+      height: 100%;
+      background: #fff;
+    }
+
+    .numbered-step {
+      display: inline-flex;
+      width: 2rem;
+      height: 2rem;
+      align-items: center;
+      justify-content: center;
+      background: var(--tsa-red);
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: .85rem;
+    }
+
+    .why-strip {
+      border-left: 4px solid var(--tsa-red);
+      padding-left: 1.25rem;
+    }
+
+    .donate-section {
+      background: var(--two-blue);
+      color: #fff;
+    }
+
+    .donate-section .section-title,
+    .donate-section p,
+    .donate-section a,
+    .donate-section .small {
+      color: #fff;
+    }
+
+    .secondary-cta a {
+      text-decoration: none;
+      color: var(--two-blue);
+      font-weight: 600;
+    }
+
+    .secondary-cta a:hover {
+      color: var(--tsa-red);
+    }
+
+    footer {
+      background: #111;
+      color: rgba(255,255,255,.82);
+    }
+
+    @media (max-width: 991.98px) {
+      .pipeline {
+        min-width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .pipeline-stage {
+        min-width: 100%;
+      }
+
+      .pipeline-arrow {
+        margin-top: 0;
+        transform: rotate(90deg);
+      }
+
+      .pipeline-top-label {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 5.5rem 0 4.5rem;
+      }
+
+      .stats-bar {
+        margin-top: -1.5rem;
+      }
+
+      .stat-number {
+        font-size: 1.6rem;
+      }
+
+      h2.section-title {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9">
+            <h1>San Francisco Has a Drug and Homelessness Crisis. The Way Out Has a Solution.</h1>
+            <p class="lead">77% of people who complete our program achieve sobriety, employment, and stable housing — and stay that way.</p>
+            <a class="btn btn-danger btn-lg" href="https://donate.salvationarmyusa.org" target="_blank" rel="noopener">Support The Way Out</a>
+            <p class="hero-supporting-stat">1,060 people served this year. $31,000 per person. Less than 1% failed a drug test.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-bar pb-5">
+      <div class="container">
+        <div class="stats-wrap bg-white">
+          <div class="row row-cols-2 row-cols-lg-6 g-0">
+            <div class="col"><div class="stat-tile border"><i class="bi bi-graph-up-arrow"></i><div class="stat-number">77%</div><div class="stat-label">Success rate across sobriety, employment, and stable housing</div></div></div>
+            <div class="col"><div class="stat-tile border border-start-0"><i class="bi bi-people"></i><div class="stat-number">1,060</div><div class="stat-label">People served this year</div></div></div>
+            <div class="col"><div class="stat-tile border border-start-0"><i class="bi bi-moon-stars"></i><div class="stat-number">69,546</div><div class="stat-label">Nights of reduced homelessness delivered</div></div></div>
+            <div class="col"><div class="stat-tile border border-start-0"><i class="bi bi-shield-check"></i><div class="stat-number">&lt;1%</div><div class="stat-label">Drug test positivity rate across 1,638 tests</div></div></div>
+            <div class="col"><div class="stat-tile border border-start-0"><i class="bi bi-piggy-bank"></i><div class="stat-number">$473k</div><div class="stat-label">Savings accumulated by recovery housing participants</div></div></div>
+            <div class="col"><div class="stat-tile border border-start-0"><i class="bi bi-briefcase"></i><div class="stat-number">5,330</div><div class="stat-label">Workforce development hours provided</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section py-5">
+      <div class="container py-lg-3">
+        <blockquote class="text-center">
+          <p class="mb-0 fst-italic">“I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me — mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again.”</p>
+          <footer>— Harbor Light Participant</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container py-lg-3">
+        <div class="row justify-content-center text-center mb-4">
+          <div class="col-lg-10">
+            <h2 class="section-title text-two-red">From the streets to self-sufficiency. Step by step.</h2>
+            <p class="mb-0">The Way Out is a full recovery system of care — not a shelter, not a hand-out. We move people from crisis to treatment, housing, training, employment, and long-term independence.</p>
+          </div>
+        </div>
+        <div class="pipeline-wrap">
+          <div class="pipeline">
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">Treatment on Demand</div>
+              <div class="pipeline-box" style="background: var(--stage-1);">
+                <i class="bi bi-person-walking"></i>
+                <div class="pipeline-stage-title">Addiction &amp; Homelessness</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Entry point</li>
+              </ul>
+            </div>
+            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">&nbsp;</div>
+              <div class="pipeline-box" style="background: var(--stage-2);">
+                <i class="bi bi-heart-pulse"></i>
+                <div class="pipeline-stage-title">Detox &amp; Drug Free Shelter</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Harbor Light Wellness Center</li>
+                <li>Hope House</li>
+                <li>Eleanor Fagan Stabilization Center<br>(Westside/TSA)</li>
+              </ul>
+            </div>
+            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">&nbsp;</div>
+              <div class="pipeline-box" style="background: var(--stage-3);">
+                <i class="bi bi-house-heart"></i>
+                <div class="pipeline-stage-title">Drug Treatment &amp; Women's Recovery Program</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Harbor Light Residential Treatment</li>
+                <li>Pinehurst Women's Recovery</li>
+              </ul>
+            </div>
+            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">&nbsp;</div>
+              <div class="pipeline-box" style="background: var(--stage-4);">
+                <i class="bi bi-buildings"></i>
+                <div class="pipeline-stage-title">Recovery Housing</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Joseph McFee Center</li>
+                <li>Marina Recovery Housing</li>
+                <li>Culinary Training Academy</li>
+              </ul>
+            </div>
+            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">Optional</div>
+              <div class="pipeline-box" style="background: var(--stage-5);">
+                <i class="bi bi-door-open"></i>
+                <div class="pipeline-stage-title">Independent Living</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Railton Place</li>
+                <li>James Baldwin Place (Westside/TSA)</li>
+              </ul>
+            </div>
+            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+            <div class="pipeline-stage">
+              <div class="pipeline-top-label">&nbsp;</div>
+              <div class="pipeline-box" style="background: var(--stage-6); color: #1b1b1b;">
+                <i class="bi bi-star-fill"></i>
+                <div class="pipeline-stage-title">Independence</div>
+              </div>
+              <ul class="pipeline-facilities">
+                <li>Alumni Support Network</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white">
+      <div class="container py-lg-3">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6">
+            <h2 class="section-title text-two-blue">Who We Serve</h2>
+            <p>Everyone who wants a way out gets one. No discrimination. No prerequisites beyond the willingness to try.</p>
+            <div class="row g-3 mt-1">
+              <div class="col-sm-6">
+                <div class="serve-card">
+                  <span class="numbered-step">1</span>
+                  <h3 class="h5 text-two-red">Gender</h3>
+                  <p class="mb-0">77.6% male, 20.3% female, 2.1% transgender or nonbinary.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="serve-card">
+                  <span class="numbered-step">2</span>
+                  <h3 class="h5 text-two-red">Race</h3>
+                  <p class="mb-0">White 30.6%, Black 28.3%, Hispanic/Latino 25.5%, Indigenous 5.8%, and other backgrounds.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="serve-card">
+                  <span class="numbered-step">3</span>
+                  <h3 class="h5 text-two-red">Age</h3>
+                  <p class="mb-0">Adults ages 25–64 make up 90% of participants.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="serve-card">
+                  <span class="numbered-step">4</span>
+                  <h3 class="h5 text-two-red">Need</h3>
+                  <p class="mb-0">80% were homeless immediately before entering treatment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="section-title text-two-red">Why The Salvation Army</h2>
+            <div class="why-card why-strip">
+              <p class="mb-3">The Salvation Army has served San Francisco's poor and unhoused since 1883. We're one of the city's largest nonprofit landowners. We don't just run programs — we own the infrastructure.</p>
+              <p class="mb-0">The Way Out isn't a pilot. It's a scaled system with a track record, a recovery model, and real results donors can measure.</p>
+            </div>
+            <div class="care-card mt-4">
+              <h3 class="h5 text-two-blue">A full system of care. Not a shelter. Not a hand-out.</h3>
+              <p class="mb-3">The Way Out is The Salvation Army's recovery-focused initiative for San Francisco's homeless and addicted population. We don't offer a bed and a wish. We offer a proven path — from detox to employment, from crisis to self-sufficiency.</p>
+              <ul class="mb-0 ps-3">
+                <li>Treatment on Demand with real-time access to detox and stabilization</li>
+                <li>Two to four years of recovery housing paired with workforce development</li>
+                <li>Culinary Training Academy with credentials, placement, and a career path</li>
+                <li>Alumni Support Network because recovery doesn't end at program exit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="donate-section py-5">
+      <div class="container py-lg-4 text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 col-xl-8">
+            <h2 class="section-title">$31,000 changes a life. What does yours change?</h2>
+            <p class="lead mb-4">The Way Out costs $31,000 per person per year. That's what it takes to go from a tent to an apartment, from addiction to employment, from crisis to community. Your donation funds Treatment on Demand — real-time access to care for people in crisis right now.</p>
+            <a class="btn btn-danger btn-lg px-5" href="https://donate.salvationarmyusa.org" target="_blank" rel="noopener">Donate Now</a>
+            <p class="small mt-3 mb-0">Or give via stock or DAF: <a href="https://salarmy.us/StockDAF" target="_blank" rel="noopener">salarmy.us/StockDAF</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-4 border-top border-bottom">
+      <div class="container">
+        <div class="row justify-content-center text-center g-3 secondary-cta align-items-center">
+          <div class="col-md-auto"><a href="https://thewayoutsf.wixsite.com/referrals/hl-referral" target="_blank" rel="noopener">Refer Someone</a></div>
+          <div class="col-md-auto d-none d-md-block text-muted">|</div>
+          <div class="col-md-auto"><a href="https://sanfrancisco.salvationarmy.org/san_francisco/the-way-out---get-involved" target="_blank" rel="noopener">Sign Up for Updates</a></div>
+          <div class="col-md-auto d-none d-md-block text-muted">|</div>
+          <div class="col-md-auto"><a href="https://x.com/thewayoutsf" target="_blank" rel="noopener">@thewayoutsf</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4">
+    <div class="container text-center">
+      <p class="mb-1">The Salvation Army Western Territory | San Francisco</p>
+      <p class="mb-0">The Way Out is delivered through The Salvation Army's Recovery System of Care.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
