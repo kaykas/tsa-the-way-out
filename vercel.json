@@ -5,7 +5,9 @@
     { "src": "emails/*.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/emails/(.*)", "dest": "/emails/$1" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/emails", "dest": "/emails/index.html" },
+    { "src": "/emails/", "dest": "/emails/index.html" },
+    { "src": "/emails/(.+)", "dest": "/emails/$1" },
+    { "src": "/", "dest": "/index.html" }
   ]
 }
