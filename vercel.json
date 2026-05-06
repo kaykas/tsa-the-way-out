@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "outputDirectory": ".",
   "builds": [
-    { "src": "**/*.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "emails/*.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/emails/(.*)", "dest": "/emails/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
