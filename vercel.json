@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/email-:slug(.+)\\.html", "destination": "/emails/email-:slug.html" }
+  ]
+}
