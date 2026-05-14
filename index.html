@@ -124,15 +124,15 @@
     .benchmark-bar {
       background: var(--two-blue);
       color: #fff;
-      padding: 1.1rem 0;
+      padding: 1.25rem 0;
     }
 
     .benchmark-bar .b-label {
-      font-size: .8rem;
+      font-size: .75rem;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .07em;
       opacity: .7;
-      margin-bottom: .25rem;
+      margin-bottom: .2rem;
     }
 
     .benchmark-bar .b-value {
@@ -143,17 +143,25 @@
     }
 
     .benchmark-bar .b-vs {
-      font-size: 1.75rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      opacity: .4;
-      padding: 0 .5rem;
-      align-self: center;
+      opacity: .5;
+      text-align: center;
+      padding: .25rem 0;
     }
 
     .benchmark-bar .b-note {
-      font-size: .82rem;
+      font-size: .8rem;
       opacity: .75;
-      margin-top: .2rem;
+      margin-top: .15rem;
+    }
+
+    .benchmark-bar .b-explanation {
+      font-size: .85rem;
+      opacity: .8;
+      margin-top: .75rem;
+      padding-top: .75rem;
+      border-top: 1px solid rgba(255,255,255,.15);
     }
 
     /* ── Stats bar ── */
@@ -203,29 +211,60 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       padding-bottom: .75rem;
+      position: relative;
+    }
+
+    /* Fade-right scroll cue on mobile */
+    @media (max-width: 991.98px) {
+      .pipeline-scroll-outer {
+        position: relative;
+      }
+      .pipeline-scroll-outer::after {
+        content: '';
+        position: absolute;
+        top: 36px;
+        right: 0;
+        bottom: 0;
+        width: 48px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,.95));
+        pointer-events: none;
+        z-index: 3;
+      }
+      .pipeline-scroll-hint {
+        display: flex;
+        align-items: center;
+        gap: .35rem;
+        font-size: .75rem;
+        color: #888;
+        margin-bottom: .5rem;
+        justify-content: flex-end;
+      }
+    }
+    @media (min-width: 992px) {
+      .pipeline-scroll-hint { display: none; }
     }
 
     .pipeline {
       display: flex;
       align-items: stretch;
       gap: 0;
-      min-width: 1100px;
+      min-width: 600px;
     }
 
     .pipeline-arrow {
-      flex: 0 0 20px;
+      flex: 0 0 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 36px;
       color: var(--two-blue);
-      font-size: .95rem;
-      opacity: .5;
+      font-size: 1.1rem;
+      opacity: .4;
     }
 
     .pipeline-stage {
       flex: 1 1 0;
-      min-width: 120px;
+      min-width: 140px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -249,7 +288,7 @@
     .pipeline-box {
       color: #fff;
       width: 100%;
-      padding: 1rem .5rem;
+      padding: 1.5rem .75rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -265,16 +304,16 @@
     }
 
     .pipeline-box .click-hint {
-      font-size: .55rem;
-      opacity: .7;
+      font-size: .6rem;
+      opacity: .75;
       text-transform: uppercase;
       letter-spacing: .06em;
-      margin-top: .4rem;
+      margin-top: .75rem;
     }
 
     .pipeline-box > i.main-icon {
-      font-size: 1.6rem;
-      height: 44px;
+      font-size: 2rem;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -282,27 +321,33 @@
     }
 
     .pipeline-stage-title {
-      height: 64px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .7rem;
-      line-height: 1.2;
+      font-size: .8rem;
+      line-height: 1.25;
       text-transform: uppercase;
       letter-spacing: .04em;
       font-weight: 700;
       text-align: center;
-      padding: .2rem .1rem 0;
+      padding: .5rem .25rem 0;
       flex-shrink: 0;
-      overflow: hidden;
+    }
+
+    .pipeline-step-num {
+      font-size: .65rem;
+      opacity: .65;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: .25rem;
     }
 
     .pipeline-divider {
       width: 70%;
       border: none;
       border-top: 1px solid rgba(255,255,255,.3);
-      margin: .4rem 0;
+      margin: .6rem 0 .4rem;
       flex-shrink: 0;
     }
 
@@ -310,9 +355,9 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: .62rem;
-      color: rgba(255,255,255,.85);
-      line-height: 1.5;
+      font-size: .68rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.55;
       text-align: center;
       width: 100%;
     }
@@ -487,11 +532,37 @@
     }
 
     @media (max-width: 767.98px) {
-      .hero { padding: 5.5rem 0 4.5rem; }
-      .stats-bar { margin-top: -1.5rem; }
-      .stat-number { font-size: 1.6rem; }
-      h2.section-title { font-size: 1.65rem; }
+      .hero { padding: 5rem 0 4rem; }
+      .hero h1 { font-size: 1.75rem; }
+      .stats-bar { margin-top: -1rem; }
+      .stat-tile { padding: 1rem .5rem; }
+      .stat-tile i { font-size: 1.4rem; margin-bottom: .5rem; }
+      .stat-number { font-size: 1.5rem; }
+      .stat-label { font-size: .8rem; }
+      h2.section-title { font-size: 1.5rem; }
       .hero-cta-group { flex-direction: column; align-items: flex-start; }
+      .benchmark-bar { padding: 1rem 0; }
+      .stay-informed-strip { padding: 1.75rem 0; }
+
+      /* Quote section: smaller font on mobile */
+      blockquote { font-size: 1rem; line-height: 1.7; }
+
+      /* Stories button: solid on mobile */
+      .quote-section .btn-outline-brand {
+        background: #fff;
+        color: var(--two-blue);
+        border-color: #fff;
+      }
+      .quote-section .btn-outline-brand:hover {
+        background: rgba(255,255,255,.9);
+        color: var(--two-blue);
+      }
+
+      /* Who We Serve: 2-col grid on mobile */
+      .serve-card-grid .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+
+      /* Why TSA section: add top margin so it separates from Who We Serve */
+      .why-tsa-col { margin-top: 2.5rem; }
     }
   </style>
 </head>
@@ -504,12 +575,12 @@
         <div class="row">
           <div class="col-lg-10 col-xl-9">
             <h1>San Francisco Has a Drug and Homelessness Crisis. The Way Out Has a Solution.</h1>
-            <p class="lead">77% of people who complete our program achieve sobriety, employment, and stable housing — and stay that way.</p>
+            <p class="lead">77% of people who complete our program achieve sobriety, employment, and stable housing - and stay that way.</p>
             <div class="hero-cta-group">
               <a class="btn btn-danger btn-lg" href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a>
               <a class="btn btn-outline-brand btn-lg" href="#stay-informed">Stay Informed</a>
             </div>
-            <p class="hero-supporting-stat">1,060 people served this year &nbsp;·&nbsp; $31,000 per person — less than half what the city spends &nbsp;·&nbsp; &lt;1% failed a drug test</p>
+            <p class="hero-supporting-stat">1,060 people served this year &nbsp;·&nbsp; $31,000 per person - less than half what the city spends &nbsp;·&nbsp; &lt;1% failed a drug test</p>
           </div>
         </div>
       </div>
@@ -518,20 +589,40 @@
     <!-- ═══ BENCHMARK BAR ═══ -->
     <div class="benchmark-bar">
       <div class="container">
-        <div class="row align-items-center g-3">
-          <div class="col-auto text-center">
+        <!-- Mobile: stacked comparison -->
+        <div class="d-md-none">
+          <div class="row g-0 text-center">
+            <div class="col-5">
+              <div class="b-label">The Way Out</div>
+              <div class="b-value">$31,000</div>
+              <div class="b-note">per person / year</div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+              <div class="b-vs">vs.</div>
+            </div>
+            <div class="col-5">
+              <div class="b-label">SF status quo</div>
+              <div class="b-value" style="color:rgba(255,255,255,.5)">$70K-$100K+</div>
+              <div class="b-note">no outcome guarantee</div>
+            </div>
+          </div>
+          <p class="b-explanation mb-0">The Way Out costs a fraction of what SF spends on chronic homelessness - and 77% of completers achieve lasting sobriety, employment, and housing.</p>
+        </div>
+        <!-- Desktop: original layout -->
+        <div class="d-none d-md-flex align-items-center g-3" style="gap:1.5rem">
+          <div class="text-center">
             <div class="b-label">The Way Out cost per person / year</div>
-            <div class="b-value text-white">$31,000</div>
+            <div class="b-value">$31,000</div>
             <div class="b-note">Sobriety + employment + stable housing</div>
           </div>
-          <div class="col-auto b-vs d-none d-md-block">vs.</div>
-          <div class="col-auto text-center">
+          <div class="b-vs px-2">vs.</div>
+          <div class="text-center">
             <div class="b-label">SF estimated cost per chronically homeless person / year</div>
-            <div class="b-value" style="color:rgba(255,255,255,.55)">$70,000–$100,000+</div>
+            <div class="b-value" style="color:rgba(255,255,255,.55)">$70,000-$100,000+</div>
             <div class="b-note">Without a path to independence</div>
           </div>
-          <div class="col ms-md-4">
-            <p class="mb-0" style="font-size:.9rem; opacity:.8">The Way Out costs a fraction of San Francisco's current approach — and it works. 77% of completers achieve lasting sobriety, employment, and housing. The city's chronic homeless population has grown for six consecutive years.</p>
+          <div class="ms-4" style="flex:1">
+            <p class="mb-0" style="font-size:.9rem; opacity:.8">The Way Out costs a fraction of San Francisco's current approach - and it works. 77% of completers achieve lasting sobriety, employment, and housing. The city's chronic homeless population has grown for six consecutive years.</p>
           </div>
         </div>
       </div>
@@ -557,8 +648,8 @@
     <section class="quote-section py-5">
       <div class="container py-lg-3">
         <blockquote class="text-center">
-          <p class="mb-0 fst-italic">"I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me — mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again."</p>
-          <footer>— Harbor Light Participant</footer>
+          <p class="mb-0 fst-italic">"I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me - mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again."</p>
+          <footer>- Harbor Light Participant</footer>
         </blockquote>
         <div class="text-center mt-4">
           <a href="stories.html" class="btn btn-outline-brand">Read More Stories</a>
@@ -566,42 +657,30 @@
       </div>
     </section>
 
-    <!-- ═══ PIPELINE — clickable steps ═══ -->
+    <!-- ═══ PIPELINE - clickable steps ═══ -->
     <section class="py-5">
       <div class="container py-lg-3">
         <div class="row justify-content-center text-center mb-2">
           <div class="col-lg-10">
             <h2 class="section-title text-two-red">From the streets to self-sufficiency. Step by step.</h2>
-            <p class="mb-1">The Way Out is a full recovery system of care — not a shelter, not a hand-out. We move people from crisis to treatment, housing, training, employment, and long-term independence.</p>
+            <p class="mb-1">The Way Out is a full recovery system of care - not a shelter, not a hand-out. Four steps from crisis to self-sufficiency.</p>
             <p class="text-muted" style="font-size:.85rem"><i class="bi bi-hand-index"></i> Click any step to learn more.</p>
           </div>
         </div>
-        <div class="pipeline-wrap">
+        <div class="pipeline-scroll-hint"><i class="bi bi-arrow-right"></i> Swipe to see all steps</div>
+        <div class="pipeline-scroll-outer"><div class="pipeline-wrap">
           <div class="pipeline">
 
+            <!-- Step 1: Crisis Entry -->
             <div class="pipeline-stage">
-              <div class="pipeline-top-label">Treatment on Demand</div>
+              <div class="pipeline-top-label">Step 1</div>
               <div class="pipeline-box" style="background: var(--stage-1);" data-bs-toggle="modal" data-bs-target="#stepModal1">
                 <i class="bi bi-person-walking main-icon"></i>
-                <div class="pipeline-stage-title">Addiction &amp; Homelessness</div>
-                <hr class="pipeline-divider">
-                <ul class="pipeline-facilities"><li>Entry point</li></ul>
-                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
-              </div>
-            </div>
-
-            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
-
-            <div class="pipeline-stage">
-              <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-2);" data-bs-toggle="modal" data-bs-target="#stepModal2">
-                <i class="bi bi-heart-pulse main-icon"></i>
-                <div class="pipeline-stage-title">Detox &amp; Drug Free Shelter</div>
+                <div class="pipeline-stage-title">Crisis Entry</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
-                  <li>Harbor Light Wellness Center</li>
-                  <li>Hope House</li>
-                  <li>Eleanor Fagan Stabilization Center</li>
+                  <li>Treatment on Demand</li>
+                  <li>Detox &amp; Stabilization</li>
                 </ul>
                 <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
@@ -609,11 +688,12 @@
 
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
 
+            <!-- Step 2: Treatment & Recovery -->
             <div class="pipeline-stage">
-              <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-3);" data-bs-toggle="modal" data-bs-target="#stepModal3">
+              <div class="pipeline-top-label">Step 2</div>
+              <div class="pipeline-box" style="background: var(--stage-3);" data-bs-toggle="modal" data-bs-target="#stepModal2">
                 <i class="bi bi-house-heart main-icon"></i>
-                <div class="pipeline-stage-title">Drug Treatment &amp; Recovery</div>
+                <div class="pipeline-stage-title">Treatment &amp; Recovery</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
                   <li>Harbor Light Residential</li>
@@ -625,16 +705,17 @@
 
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
 
+            <!-- Step 3: Housing & Work -->
             <div class="pipeline-stage">
-              <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-4);" data-bs-toggle="modal" data-bs-target="#stepModal4">
+              <div class="pipeline-top-label">Step 3</div>
+              <div class="pipeline-box" style="background: var(--stage-4);" data-bs-toggle="modal" data-bs-target="#stepModal3">
                 <i class="bi bi-buildings main-icon"></i>
-                <div class="pipeline-stage-title">Recovery Housing</div>
+                <div class="pipeline-stage-title">Housing &amp; Work</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
-                  <li>Joseph McFee Center</li>
-                  <li>Marina Recovery Housing</li>
+                  <li>Recovery Housing</li>
                   <li>Culinary Training Academy</li>
+                  <li>Independent Living (optional)</li>
                 </ul>
                 <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
@@ -642,74 +723,50 @@
 
             <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
 
+            <!-- Step 4: Independence -->
             <div class="pipeline-stage">
-              <div class="pipeline-top-label">Optional</div>
-              <div class="pipeline-box" style="background: var(--stage-5);" data-bs-toggle="modal" data-bs-target="#stepModal5">
-                <i class="bi bi-door-open main-icon"></i>
-                <div class="pipeline-stage-title">Independent Living</div>
-                <hr class="pipeline-divider">
-                <ul class="pipeline-facilities">
-                  <li>Railton Place</li>
-                  <li>James Baldwin Place</li>
-                </ul>
-                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
-              </div>
-            </div>
-
-            <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
-
-            <div class="pipeline-stage">
-              <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-6);" data-bs-toggle="modal" data-bs-target="#stepModal6">
+              <div class="pipeline-top-label">Step 4</div>
+              <div class="pipeline-box" style="background: var(--stage-6);" data-bs-toggle="modal" data-bs-target="#stepModal4">
                 <i class="bi bi-star-fill main-icon" style="color:#1b1b1b"></i>
                 <div class="pipeline-stage-title" style="color:#1b1b1b">Independence</div>
                 <hr class="pipeline-divider" style="border-color:rgba(0,0,0,.2)">
-                <ul class="pipeline-facilities" style="color:#555"><li>Alumni Support Network</li></ul>
+                <ul class="pipeline-facilities" style="color:#555">
+                  <li>Alumni Support Network</li>
+                </ul>
                 <span class="click-hint" style="color:#555"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
           </div>
-        </div>
+        </div></div>
       </div>
     </section>
 
-    <!-- ═══ STEP MODALS ═══ -->
+    <!-- ═══ STEP MODALS (4-step) ═══ -->
+
+    <!-- Modal 1: Crisis Entry -->
     <div class="modal fade" id="stepModal1" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="background:var(--stage-1); color:#fff; border:none">
-            <h5 class="modal-title">Treatment on Demand</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>The Way Out begins with one principle: when someone is ready to get help, they get help that day. No waitlist. No prerequisites. Treatment on Demand means real-time access to detox and stabilization — because the window of willingness is narrow, and we don't waste it.</p>
-            <p>San Francisco has thousands of people living in crisis. The Way Out is the entry point for those who want out.</p>
-            <div class="step-modal-quote">
-              <p class="mb-1">"I'd asked for help before and been told to come back in two weeks. Harbor Light took me the same day. That was the difference."</p>
-              <footer>— Way Out participant, 3 years in recovery <span class="fpo-badge">FPO</span></footer>
+            <div>
+              <div style="font-size:.7rem; opacity:.75; text-transform:uppercase; letter-spacing:.08em">Step 1</div>
+              <h5 class="modal-title mb-0">Crisis Entry</h5>
             </div>
-          </div>
-          <div class="modal-footer border-0">
-            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support Treatment on Demand</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="stepModal2" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header" style="background:var(--stage-2); color:#fff; border:none">
-            <h5 class="modal-title">Detox &amp; Drug Free Shelter</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Before recovery can begin, the body has to be safe. Our detox and drug-free shelter facilities — Harbor Light Wellness Center, Hope House, and Eleanor Fagan Stabilization Center — provide medically supported detox and a stable place to land.</p>
-            <p>This is where crisis becomes possibility. Staff meet participants where they are, without judgment, and stabilize them for the next step.</p>
+            <p>The Way Out begins with one principle: when someone is ready to get help, they get help that day. No waitlist. No prerequisites. Because the window of willingness is narrow - we don't waste it.</p>
+            <p>Crisis entry covers two phases: <strong>Treatment on Demand</strong> (immediate access to care) and <strong>Detox &amp; Stabilization</strong> (medically supported detox and a safe place to land). Both happen before a person is ready for residential treatment.</p>
+            <p class="mb-1"><strong>Facilities at this stage:</strong></p>
+            <ul>
+              <li>Harbor Light Wellness Center</li>
+              <li>Hope House</li>
+              <li>Eleanor Fagan Stabilization Center</li>
+            </ul>
             <div class="step-modal-quote">
-              <p class="mb-1">"I came in shaking. They didn't look at me like I was broken. They just helped me get through the first night, and then the next one."</p>
-              <footer>— Harbor Light Wellness Center participant <span class="fpo-badge">FPO</span></footer>
+              <p class="mb-1">"I'd tried to get help before. I was told to come back in two weeks. Harbor Light took me the same day I walked in. That was the difference between me being here and not being here."</p>
+              <footer>- Way Out participant, 3 years in recovery <span class="fpo-badge">FPO</span></footer>
             </div>
           </div>
           <div class="modal-footer border-0">
@@ -719,19 +776,27 @@
       </div>
     </div>
 
-    <div class="modal fade" id="stepModal3" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal 2: Treatment & Recovery -->
+    <div class="modal fade" id="stepModal2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="background:var(--stage-3); color:#fff; border:none">
-            <h5 class="modal-title">Drug Treatment &amp; Recovery</h5>
+            <div>
+              <div style="font-size:.7rem; opacity:.75; text-transform:uppercase; letter-spacing:.08em">Step 2</div>
+              <h5 class="modal-title mb-0">Treatment &amp; Recovery</h5>
+            </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Residential treatment at Harbor Light and Pinehurst Women's Recovery provides structured, long-term recovery programming — therapy, peer support, skill-building, and accountability. This is the core of The Way Out: a proven model that addresses addiction as a health condition, not a character flaw.</p>
-            <p>Pinehurst serves women specifically, with programming designed around the distinct challenges women face in recovery, including trauma and family reunification.</p>
+            <p>Residential treatment provides structured, long-term recovery programming: therapy, peer support, skill-building, and accountability. This is the core of The Way Out - a proven model that treats addiction as a health condition, not a character flaw.</p>
+            <p class="mb-1"><strong>Facilities at this stage:</strong></p>
+            <ul>
+              <li><strong>Harbor Light Residential</strong> - long-term residential recovery for men</li>
+              <li><strong>Pinehurst Women's Recovery</strong> - programming designed around the distinct challenges women face, including trauma and family reunification</li>
+            </ul>
             <div class="step-modal-quote">
-              <p class="mb-1">"Pinehurst gave me time to actually heal — not just stop using, but understand why I started. I've been clean for two years. My daughter calls me every Sunday."</p>
-              <footer>— Pinehurst Women's Recovery graduate <span class="fpo-badge">FPO</span></footer>
+              <p class="mb-1">"Pinehurst gave me time to actually heal - not just stop using, but understand why I started. I've been clean for two years. My daughter calls me every Sunday."</p>
+              <footer>- Pinehurst Women's Recovery graduate <span class="fpo-badge">FPO</span></footer>
             </div>
           </div>
           <div class="modal-footer border-0">
@@ -741,19 +806,29 @@
       </div>
     </div>
 
-    <div class="modal fade" id="stepModal4" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal 3: Housing & Work -->
+    <div class="modal fade" id="stepModal3" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="background:var(--stage-4); color:#fff; border:none">
-            <h5 class="modal-title">Recovery Housing &amp; Workforce Development</h5>
+            <div>
+              <div style="font-size:.7rem; opacity:.75; text-transform:uppercase; letter-spacing:.08em">Step 3</div>
+              <h5 class="modal-title mb-0">Housing &amp; Work</h5>
+            </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Recovery without stability doesn't last. Joseph McFee Center and Marina Recovery Housing provide transitional housing — a roof, a structure, and a community — while participants build the skills they need to stay housed permanently.</p>
-            <p>The Culinary Training Academy is the workforce development engine: a real culinary program with industry credentials, externship placements, and graduates working in San Francisco restaurants.</p>
+            <p>Recovery without stability doesn't last. This stage provides a roof, a structure, a community, and a path to income - so that when participants leave, they have somewhere to go and a way to support themselves.</p>
+            <p class="mb-1"><strong>Facilities at this stage:</strong></p>
+            <ul>
+              <li><strong>Joseph McFee Center</strong> - transitional recovery housing</li>
+              <li><strong>Marina Recovery Housing</strong> - community-based recovery housing</li>
+              <li><strong>Culinary Training Academy</strong> - industry credentials, externships, and job placement in San Francisco restaurants</li>
+              <li><strong>Railton Place &amp; James Baldwin Place</strong> (optional) - permanent supportive housing for those who need more time before full independence</li>
+            </ul>
             <div class="step-modal-quote">
-              <p class="mb-1">"I got my ServSafe certification at the Culinary Academy. I'm now a line cook at a restaurant in the Mission. I have a bank account. I have a routine. I have a life."</p>
-              <footer>— Culinary Training Academy graduate <span class="fpo-badge">FPO</span></footer>
+              <p class="mb-1">"I got my ServSafe certification at the Culinary Academy. I'm a line cook now in the Mission. I have a bank account. I have a routine. I have a life. Six months ago I was sleeping outside."</p>
+              <footer>- Culinary Training Academy graduate <span class="fpo-badge">FPO</span></footer>
             </div>
           </div>
           <div class="modal-footer border-0">
@@ -763,41 +838,23 @@
       </div>
     </div>
 
-    <div class="modal fade" id="stepModal5" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header" style="background:var(--stage-5); color:#fff; border:none">
-            <h5 class="modal-title">Independent Living</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>For participants who need more support before full independence, Railton Place and James Baldwin Place offer permanent supportive housing — a bridge between recovery housing and self-sufficiency, with ongoing case management and community.</p>
-            <p>This step is optional. Many participants transition directly to independent living. For those who need more time, it's here.</p>
-            <div class="step-modal-quote">
-              <p class="mb-1">"Railton gave me two more years to get solid. I wasn't rushed. When I finally moved into my own place, I was ready. I haven't looked back."</p>
-              <footer>— Railton Place resident, now independently housed <span class="fpo-badge">FPO</span></footer>
-            </div>
-          </div>
-          <div class="modal-footer border-0">
-            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="stepModal6" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal 4: Independence -->
+    <div class="modal fade" id="stepModal4" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header" style="background:var(--stage-6); color:#1b1b1b; border:none">
-            <h5 class="modal-title">Independence &amp; Alumni Support</h5>
+            <div>
+              <div style="font-size:.7rem; opacity:.6; text-transform:uppercase; letter-spacing:.08em">Step 4</div>
+              <h5 class="modal-title mb-0">Independence</h5>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Recovery doesn't end at program exit. The Alumni Support Network keeps graduates connected — peer mentorship, community events, access to resources when life gets hard. This is what makes 77% stick.</p>
-            <p>Graduates also become the most powerful voices in the room: living proof that The Way Out works, and advocates for the people still in it.</p>
+            <p>Recovery doesn't end at program exit. The Alumni Support Network keeps graduates connected - peer mentorship, community events, and access to resources when life gets hard. This ongoing connection is a core reason the 77% success rate holds.</p>
+            <p>Graduates also become the most powerful voices in the building: living proof that The Way Out works, and advocates for the people still in it.</p>
             <div class="step-modal-quote">
-              <p class="mb-1">"I went back to volunteer at Harbor Light last year. Seeing where I started and knowing where I am now — that's the whole story. I wanted someone else to see it too."</p>
-              <footer>— Alumni Support Network member, 4 years independent <span class="fpo-badge">FPO</span></footer>
+              <p class="mb-1">"I went back to volunteer at Harbor Light last year. Standing in that room, knowing where I started - that's the whole story. I wanted someone else to see what I saw: that there's a way through this."</p>
+              <footer>- Alumni Support Network member, 4 years independent <span class="fpo-badge">FPO</span></footer>
             </div>
           </div>
           <div class="modal-footer border-0">
@@ -814,46 +871,46 @@
           <div class="col-lg-6">
             <h2 class="section-title text-two-blue">Who We Serve</h2>
             <p>Everyone who wants a way out gets one. No discrimination. No prerequisites beyond the willingness to try.</p>
-            <div class="row g-3 mt-1">
-              <div class="col-sm-6">
+            <div class="row g-3 mt-1 serve-card-grid">
+              <div class="col-6">
                 <div class="serve-card">
                   <span class="numbered-step">1</span>
                   <h3 class="h5 text-two-red">Gender</h3>
                   <p class="mb-0">77.6% male, 20.3% female, 2.1% transgender or nonbinary.</p>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-6">
                 <div class="serve-card">
                   <span class="numbered-step">2</span>
                   <h3 class="h5 text-two-red">Race</h3>
-                  <p class="mb-0">White 30.6%, Black 28.3%, Hispanic/Latino 25.5%, Indigenous 5.8%, and other backgrounds.</p>
+                  <p class="mb-0">White 30.6%, Black 28.3%, Hispanic/Latino 25.5%, Indigenous 5.8%.</p>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-6">
                 <div class="serve-card">
                   <span class="numbered-step">3</span>
                   <h3 class="h5 text-two-red">Age</h3>
-                  <p class="mb-0">Adults ages 25–64 make up 90% of participants.</p>
+                  <p class="mb-0">Adults 25–64 make up 90% of participants.</p>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-6">
                 <div class="serve-card">
                   <span class="numbered-step">4</span>
                   <h3 class="h5 text-two-red">Need</h3>
-                  <p class="mb-0">80% were homeless immediately before entering treatment.</p>
+                  <p class="mb-0">80% were homeless the day they walked in.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 why-tsa-col">
             <h2 class="section-title text-two-red">Why The Salvation Army</h2>
             <div class="why-card why-strip">
-              <p class="mb-3">The Salvation Army has served San Francisco's poor and unhoused since 1883. We're one of the city's largest nonprofit landowners. We don't just run programs — we own the infrastructure.</p>
+              <p class="mb-3">The Salvation Army has served San Francisco's poor and unhoused since 1883. We're one of the city's largest nonprofit landowners. We don't just run programs - we own the infrastructure.</p>
               <p class="mb-0">The Way Out isn't a pilot. It's a scaled system with a track record, a recovery model, and real results donors can measure.</p>
             </div>
             <div class="care-card mt-4">
               <h3 class="h5 text-two-blue">A full system of care. Not a shelter. Not a hand-out.</h3>
-              <p class="mb-3">The Way Out is The Salvation Army's recovery-focused initiative for San Francisco's homeless and addicted population. We don't offer a bed and a wish. We offer a proven path — from detox to employment, from crisis to self-sufficiency.</p>
+              <p class="mb-3">The Way Out is The Salvation Army's recovery-focused initiative for San Francisco's homeless and addicted population. We don't offer a bed and a wish. We offer a proven path - from detox to employment, from crisis to self-sufficiency.</p>
               <ul class="mb-0 ps-3">
                 <li>Treatment on Demand with real-time access to detox and stabilization</li>
                 <li>Two to four years of recovery housing paired with workforce development</li>
@@ -872,7 +929,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-9 col-xl-8">
             <h2 class="section-title">$31,000 changes a life. What does yours change?</h2>
-            <p class="lead mb-2">The Way Out costs $31,000 per person per year — less than half of what San Francisco spends on chronic homelessness with no outcome guarantees. Your donation funds Treatment on Demand: real-time access to care for people in crisis right now.</p>
+            <p class="lead mb-2">The Way Out costs $31,000 per person per year - less than half of what San Francisco spends on chronic homelessness with no outcome guarantees. Your donation funds Treatment on Demand: real-time access to care for people in crisis right now.</p>
             <p class="mb-4" style="opacity:.8; font-size:.95rem">Any amount matters. $31 is one day of care. $310 is ten days. $31,000 is a life changed.</p>
             <a class="btn btn-danger btn-lg px-5" href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a>
             <p class="small mt-3 mb-0">Or give via stock or DAF: <a href="https://salarmy.us/StockDAF" target="_blank" rel="noopener">salarmy.us/StockDAF</a></p>
@@ -887,7 +944,7 @@
         <div class="row align-items-center g-4">
           <div class="col-lg-5">
             <h3 class="section-title text-two-blue">Not ready to give yet? Stay informed.</h3>
-            <p class="mb-0 text-muted">Get quarterly updates on The Way Out — real stories, outcomes data, and how your community is responding to the crisis.</p>
+            <p class="mb-0 text-muted">Get quarterly updates on The Way Out - real stories, outcomes data, and how your community is responding to the crisis.</p>
           </div>
           <div class="col-lg-7">
             <form class="row g-2" action="https://sanfrancisco.salvationarmy.org/san_francisco/the-way-out---get-involved" method="get" target="_blank">
@@ -928,5 +985,73 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ═══ GA4 ═══ -->
+  <!-- Replace G-XXXXXXXX with the real TSA Way Out GA4 measurement ID before launch -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXX', { send_page_view: true });
+
+    // ── Pipeline step modal tracking ──
+    // Fires 'pipeline_step_view' with step_name when a modal opens.
+    // Use this in GA4 to see which steps resonate most with visitors.
+    const stepLabels = {
+      stepModal1: 'Crisis Entry',
+      stepModal2: 'Treatment & Recovery',
+      stepModal3: 'Housing & Work',
+      stepModal4: 'Independence'
+    };
+    Object.keys(stepLabels).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('shown.bs.modal', function() {
+        gtag('event', 'pipeline_step_view', {
+          step_name: stepLabels[id],
+          step_id: id
+        });
+      });
+    });
+
+    // ── Donate button clicks ──
+    // Fires 'donate_click' with placement (hero | modal | section | footer)
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href*="give.salvationarmy.org"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          // Infer placement from nearest section context
+          var placement = 'unknown';
+          var section = el.closest('section, .modal, header, nav');
+          if (section) {
+            if (section.classList.contains('modal'))      placement = 'step_modal';
+            else if (section.classList.contains('donate-section')) placement = 'donate_section';
+            else if (section.querySelector('.hero-text'))           placement = 'hero';
+            else placement = section.className.replace(/\s+/g, '_').substring(0, 40);
+          }
+          gtag('event', 'donate_click', { placement: placement });
+        });
+      });
+
+      // ── Email capture form submit ──
+      // Fires 'email_signup' so we know when visitors choose to stay informed vs. donate
+      var emailForm = document.querySelector('#stay-informed form');
+      if (emailForm) {
+        emailForm.addEventListener('submit', function() {
+          var emailInput = emailForm.querySelector('input[type="email"]');
+          gtag('event', 'email_signup', {
+            has_email: emailInput && emailInput.value.length > 0
+          });
+        });
+      }
+
+      // ── Stories page link ──
+      document.querySelectorAll('a[href="stories.html"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'stories_link_click', { placement: 'footer_cta' });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
