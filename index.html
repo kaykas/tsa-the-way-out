@@ -70,17 +70,18 @@
     }
 
     .btn-outline-brand {
-      background: #fff;
-      color: var(--tsa-red);
-      border: 1px solid var(--tsa-red);
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
     }
 
     .btn-outline-brand:hover {
-      background: var(--tsa-red);
+      background: rgba(255,255,255,.15);
       color: #fff;
-      border-color: var(--tsa-red);
+      border-color: #fff;
     }
 
+    /* ── Hero ── */
     .hero {
       position: relative;
       background:
@@ -105,12 +106,57 @@
       color: rgba(255,255,255,.93);
     }
 
-    .hero-supporting-stat {
-      font-size: 1rem;
-      color: rgba(255,255,255,.9);
-      margin-top: 1rem;
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
     }
 
+    .hero-supporting-stat {
+      font-size: .95rem;
+      color: rgba(255,255,255,.82);
+      margin-top: .5rem;
+    }
+
+    /* ── Benchmark bar ── */
+    .benchmark-bar {
+      background: var(--two-blue);
+      color: #fff;
+      padding: 1.1rem 0;
+    }
+
+    .benchmark-bar .b-label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .7;
+      margin-bottom: .25rem;
+    }
+
+    .benchmark-bar .b-value {
+      font-size: 1.5rem;
+      font-family: "trajan-pro-3", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .benchmark-bar .b-vs {
+      font-size: 1.75rem;
+      font-weight: 700;
+      opacity: .4;
+      padding: 0 .5rem;
+      align-self: center;
+    }
+
+    .benchmark-bar .b-note {
+      font-size: .82rem;
+      opacity: .75;
+      margin-top: .2rem;
+    }
+
+    /* ── Stats bar ── */
     .stats-bar {
       background: #fff;
       margin-top: -2.5rem;
@@ -152,6 +198,156 @@
       line-height: 1.4;
     }
 
+    /* ── Pipeline ── */
+    .pipeline-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: .75rem;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      min-width: 1100px;
+    }
+
+    .pipeline-arrow {
+      flex: 0 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
+      color: var(--two-blue);
+      font-size: .95rem;
+      opacity: .5;
+    }
+
+    .pipeline-stage {
+      flex: 1 1 0;
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+
+    .pipeline-top-label {
+      height: 36px;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--two-blue);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 .2rem;
+      line-height: 1.2;
+    }
+
+    .pipeline-box {
+      color: #fff;
+      width: 100%;
+      padding: 1rem .5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.13);
+      cursor: pointer;
+      transition: filter .15s, transform .15s;
+      position: relative;
+    }
+
+    .pipeline-box:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    .pipeline-box .click-hint {
+      font-size: .55rem;
+      opacity: .7;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: .4rem;
+    }
+
+    .pipeline-box > i.main-icon {
+      font-size: 1.6rem;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pipeline-stage-title {
+      height: 64px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-weight: 700;
+      text-align: center;
+      padding: .2rem .1rem 0;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .pipeline-divider {
+      width: 70%;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.3);
+      margin: .4rem 0;
+      flex-shrink: 0;
+    }
+
+    .pipeline-facilities {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: .62rem;
+      color: rgba(255,255,255,.85);
+      line-height: 1.5;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* ── Step modals ── */
+    .step-modal-quote {
+      border-left: 4px solid var(--tsa-red);
+      padding-left: 1rem;
+      font-style: italic;
+      color: #444;
+      margin-top: 1rem;
+    }
+
+    .step-modal-quote footer {
+      font-style: normal;
+      font-size: .85rem;
+      color: #888;
+      margin-top: .4rem;
+    }
+
+    .fpo-badge {
+      display: inline-block;
+      background: #f0ad4e;
+      color: #111;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+
+    /* ── Quote / testimonials ── */
     .quote-section {
       background: var(--two-blue);
       color: #fff;
@@ -175,115 +371,38 @@
       text-transform: uppercase;
     }
 
-    /* ── Pipeline ── */
-    .pipeline-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: .75rem;
+    .testimonial-card {
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 1.5rem;
+      height: 100%;
+      background: #fff;
     }
 
-    .pipeline {
-      display: flex;
-      align-items: stretch; /* all cards same height — tallest card sets the height */
-      gap: 0;
-      min-width: 1100px;
-    }
-
-    .pipeline-arrow {
-      flex: 0 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 36px; /* offset for top label row */
-      color: var(--two-blue);
-      font-size: .95rem;
-      opacity: .5;
-    }
-
-    .pipeline-stage {
-      flex: 1 1 0;
-      min-width: 120px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      text-align: center;
-    }
-
-    /* Label row — fixed 36px, invisible when empty */
-    .pipeline-top-label {
-      height: 36px;
-      font-size: .6rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--two-blue);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 .2rem;
-      line-height: 1.2;
-    }
-
-    /* Card — 3-zone flexbox: icon · title · facilities */
-    .pipeline-box {
-      color: #fff;
-      width: 100%;
-      padding: 1rem .5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,.13);
-    }
-
-    /* Zone 1 — Icon: 44px fixed */
-    .pipeline-box > i {
-      font-size: 1.6rem;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* Zone 2 — Title: fixed 64px, text centered, no overflow */
-    .pipeline-stage-title {
-      height: 64px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .7rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      font-weight: 700;
-      text-align: center;
-      padding: .2rem .1rem 0;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    /* Divider between title and facilities */
-    .pipeline-divider {
-      width: 70%;
-      border: none;
-      border-top: 1px solid rgba(255,255,255,.3);
-      margin: .4rem 0;
-      flex-shrink: 0;
-    }
-
-    /* Zone 3 — Facilities: auto height, top-aligned */
-    .pipeline-facilities {
-      list-style: none;
-      padding: 0;
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      color: #222;
       margin: 0;
-      font-size: .62rem;
-      color: rgba(255,255,255,.85);
-      line-height: 1.5;
-      text-align: center;
-      width: 100%;
     }
 
+    .testimonial-card blockquote footer {
+      color: #666;
+      font-size: .85rem;
+      margin-top: .75rem;
+    }
+
+    .testimonial-stage-tag {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 2px 8px;
+      border-radius: 2px;
+      color: #fff;
+      margin-bottom: .75rem;
+    }
+
+    /* ── Cards ── */
     .care-card,
     .serve-card,
     .why-card {
@@ -310,6 +429,7 @@
       padding-left: 1.25rem;
     }
 
+    /* ── Donate section ── */
     .donate-section {
       background: var(--two-blue);
       color: #fff;
@@ -322,6 +442,31 @@
       color: #fff;
     }
 
+    /* ── Stay informed strip ── */
+    .stay-informed-strip {
+      background: #f5f5f5;
+      border-top: 3px solid var(--tsa-red);
+      padding: 2.5rem 0;
+    }
+
+    .stay-informed-strip h3 {
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+    }
+
+    .stay-informed-strip .form-control {
+      border-radius: 0;
+      border: 1px solid #ccc;
+      padding: .75rem 1rem;
+      font-size: 1rem;
+    }
+
+    .stay-informed-strip .btn {
+      border-radius: 0;
+      padding: .75rem 1.5rem;
+    }
+
+    /* ── Footer CTA strip ── */
     .secondary-cta a {
       text-decoration: none;
       color: var(--two-blue);
@@ -338,48 +483,61 @@
     }
 
     @media (max-width: 991.98px) {
-      .pipeline {
-        min-width: 820px;
-      }
-      .pipeline-arrow {
-        margin-bottom: calc(210px / 2 - .5rem);
-      }
+      .pipeline { min-width: 820px; }
     }
 
     @media (max-width: 767.98px) {
-      .hero {
-        padding: 5.5rem 0 4.5rem;
-      }
-
-      .stats-bar {
-        margin-top: -1.5rem;
-      }
-
-      .stat-number {
-        font-size: 1.6rem;
-      }
-
-      h2.section-title {
-        font-size: 1.65rem;
-      }
+      .hero { padding: 5.5rem 0 4.5rem; }
+      .stats-bar { margin-top: -1.5rem; }
+      .stat-number { font-size: 1.6rem; }
+      h2.section-title { font-size: 1.65rem; }
+      .hero-cta-group { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
   <main>
+
+    <!-- ═══ HERO ═══ -->
     <section class="hero">
       <div class="container">
         <div class="row">
           <div class="col-lg-10 col-xl-9">
             <h1>San Francisco Has a Drug and Homelessness Crisis. The Way Out Has a Solution.</h1>
             <p class="lead">77% of people who complete our program achieve sobriety, employment, and stable housing — and stay that way.</p>
-            <a class="btn btn-danger btn-lg" href="https://donate.salvationarmyusa.org" target="_blank" rel="noopener">Support The Way Out</a>
-            <p class="hero-supporting-stat">1,060 people served this year. $31,000 per person. Less than 1% failed a drug test.</p>
+            <div class="hero-cta-group">
+              <a class="btn btn-danger btn-lg" href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a>
+              <a class="btn btn-outline-brand btn-lg" href="#stay-informed">Stay Informed</a>
+            </div>
+            <p class="hero-supporting-stat">1,060 people served this year &nbsp;·&nbsp; $31,000 per person — less than half what the city spends &nbsp;·&nbsp; &lt;1% failed a drug test</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ BENCHMARK BAR ═══ -->
+    <div class="benchmark-bar">
+      <div class="container">
+        <div class="row align-items-center g-3">
+          <div class="col-auto text-center">
+            <div class="b-label">The Way Out cost per person / year</div>
+            <div class="b-value text-white">$31,000</div>
+            <div class="b-note">Sobriety + employment + stable housing</div>
+          </div>
+          <div class="col-auto b-vs d-none d-md-block">vs.</div>
+          <div class="col-auto text-center">
+            <div class="b-label">SF estimated cost per chronically homeless person / year</div>
+            <div class="b-value" style="color:rgba(255,255,255,.55)">$70,000–$100,000+</div>
+            <div class="b-note">Without a path to independence</div>
+          </div>
+          <div class="col ms-md-4">
+            <p class="mb-0" style="font-size:.9rem; opacity:.8">The Way Out costs a fraction of San Francisco's current approach — and it works. 77% of completers achieve lasting sobriety, employment, and housing. The city's chronic homeless population has grown for six consecutive years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ STATS BAR ═══ -->
     <section class="stats-bar pb-5">
       <div class="container">
         <div class="stats-wrap bg-white">
@@ -395,21 +553,27 @@
       </div>
     </section>
 
+    <!-- ═══ HERO QUOTE ═══ -->
     <section class="quote-section py-5">
       <div class="container py-lg-3">
         <blockquote class="text-center">
-          <p class="mb-0 fst-italic">“I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me — mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again.”</p>
+          <p class="mb-0 fst-italic">"I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me — mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again."</p>
           <footer>— Harbor Light Participant</footer>
         </blockquote>
+        <div class="text-center mt-4">
+          <a href="stories.html" class="btn btn-outline-brand">Read More Stories</a>
+        </div>
       </div>
     </section>
 
+    <!-- ═══ PIPELINE — clickable steps ═══ -->
     <section class="py-5">
       <div class="container py-lg-3">
-        <div class="row justify-content-center text-center mb-4">
+        <div class="row justify-content-center text-center mb-2">
           <div class="col-lg-10">
             <h2 class="section-title text-two-red">From the streets to self-sufficiency. Step by step.</h2>
-            <p class="mb-0">The Way Out is a full recovery system of care — not a shelter, not a hand-out. We move people from crisis to treatment, housing, training, employment, and long-term independence.</p>
+            <p class="mb-1">The Way Out is a full recovery system of care — not a shelter, not a hand-out. We move people from crisis to treatment, housing, training, employment, and long-term independence.</p>
+            <p class="text-muted" style="font-size:.85rem"><i class="bi bi-hand-index"></i> Click any step to learn more.</p>
           </div>
         </div>
         <div class="pipeline-wrap">
@@ -417,13 +581,12 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">Treatment on Demand</div>
-              <div class="pipeline-box" style="background: var(--stage-1);">
-                <i class="bi bi-person-walking"></i>
+              <div class="pipeline-box" style="background: var(--stage-1);" data-bs-toggle="modal" data-bs-target="#stepModal1">
+                <i class="bi bi-person-walking main-icon"></i>
                 <div class="pipeline-stage-title">Addiction &amp; Homelessness</div>
                 <hr class="pipeline-divider">
-                <ul class="pipeline-facilities">
-                  <li>Entry point</li>
-                </ul>
+                <ul class="pipeline-facilities"><li>Entry point</li></ul>
+                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -431,8 +594,8 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-2);">
-                <i class="bi bi-heart-pulse"></i>
+              <div class="pipeline-box" style="background: var(--stage-2);" data-bs-toggle="modal" data-bs-target="#stepModal2">
+                <i class="bi bi-heart-pulse main-icon"></i>
                 <div class="pipeline-stage-title">Detox &amp; Drug Free Shelter</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
@@ -440,6 +603,7 @@
                   <li>Hope House</li>
                   <li>Eleanor Fagan Stabilization Center</li>
                 </ul>
+                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -447,14 +611,15 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-3);">
-                <i class="bi bi-house-heart"></i>
+              <div class="pipeline-box" style="background: var(--stage-3);" data-bs-toggle="modal" data-bs-target="#stepModal3">
+                <i class="bi bi-house-heart main-icon"></i>
                 <div class="pipeline-stage-title">Drug Treatment &amp; Recovery</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
                   <li>Harbor Light Residential</li>
                   <li>Pinehurst Women's Recovery</li>
                 </ul>
+                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -462,8 +627,8 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-4);">
-                <i class="bi bi-buildings"></i>
+              <div class="pipeline-box" style="background: var(--stage-4);" data-bs-toggle="modal" data-bs-target="#stepModal4">
+                <i class="bi bi-buildings main-icon"></i>
                 <div class="pipeline-stage-title">Recovery Housing</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
@@ -471,6 +636,7 @@
                   <li>Marina Recovery Housing</li>
                   <li>Culinary Training Academy</li>
                 </ul>
+                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -478,14 +644,15 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">Optional</div>
-              <div class="pipeline-box" style="background: var(--stage-5);">
-                <i class="bi bi-door-open"></i>
+              <div class="pipeline-box" style="background: var(--stage-5);" data-bs-toggle="modal" data-bs-target="#stepModal5">
+                <i class="bi bi-door-open main-icon"></i>
                 <div class="pipeline-stage-title">Independent Living</div>
                 <hr class="pipeline-divider">
                 <ul class="pipeline-facilities">
                   <li>Railton Place</li>
                   <li>James Baldwin Place</li>
                 </ul>
+                <span class="click-hint"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -493,13 +660,12 @@
 
             <div class="pipeline-stage">
               <div class="pipeline-top-label">&nbsp;</div>
-              <div class="pipeline-box" style="background: var(--stage-6);">
-                <i class="bi bi-star-fill" style="color:#1b1b1b"></i>
+              <div class="pipeline-box" style="background: var(--stage-6);" data-bs-toggle="modal" data-bs-target="#stepModal6">
+                <i class="bi bi-star-fill main-icon" style="color:#1b1b1b"></i>
                 <div class="pipeline-stage-title" style="color:#1b1b1b">Independence</div>
                 <hr class="pipeline-divider" style="border-color:rgba(0,0,0,.2)">
-                <ul class="pipeline-facilities" style="color:#555">
-                  <li>Alumni Support Network</li>
-                </ul>
+                <ul class="pipeline-facilities" style="color:#555"><li>Alumni Support Network</li></ul>
+                <span class="click-hint" style="color:#555"><i class="bi bi-plus-circle"></i> Learn more</span>
               </div>
             </div>
 
@@ -508,6 +674,140 @@
       </div>
     </section>
 
+    <!-- ═══ STEP MODALS ═══ -->
+    <div class="modal fade" id="stepModal1" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-1); color:#fff; border:none">
+            <h5 class="modal-title">Treatment on Demand</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>The Way Out begins with one principle: when someone is ready to get help, they get help that day. No waitlist. No prerequisites. Treatment on Demand means real-time access to detox and stabilization — because the window of willingness is narrow, and we don't waste it.</p>
+            <p>San Francisco has thousands of people living in crisis. The Way Out is the entry point for those who want out.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"I'd asked for help before and been told to come back in two weeks. Harbor Light took me the same day. That was the difference."</p>
+              <footer>— Way Out participant, 3 years in recovery <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support Treatment on Demand</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stepModal2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-2); color:#fff; border:none">
+            <h5 class="modal-title">Detox &amp; Drug Free Shelter</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Before recovery can begin, the body has to be safe. Our detox and drug-free shelter facilities — Harbor Light Wellness Center, Hope House, and Eleanor Fagan Stabilization Center — provide medically supported detox and a stable place to land.</p>
+            <p>This is where crisis becomes possibility. Staff meet participants where they are, without judgment, and stabilize them for the next step.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"I came in shaking. They didn't look at me like I was broken. They just helped me get through the first night, and then the next one."</p>
+              <footer>— Harbor Light Wellness Center participant <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stepModal3" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-3); color:#fff; border:none">
+            <h5 class="modal-title">Drug Treatment &amp; Recovery</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Residential treatment at Harbor Light and Pinehurst Women's Recovery provides structured, long-term recovery programming — therapy, peer support, skill-building, and accountability. This is the core of The Way Out: a proven model that addresses addiction as a health condition, not a character flaw.</p>
+            <p>Pinehurst serves women specifically, with programming designed around the distinct challenges women face in recovery, including trauma and family reunification.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"Pinehurst gave me time to actually heal — not just stop using, but understand why I started. I've been clean for two years. My daughter calls me every Sunday."</p>
+              <footer>— Pinehurst Women's Recovery graduate <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stepModal4" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-4); color:#fff; border:none">
+            <h5 class="modal-title">Recovery Housing &amp; Workforce Development</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Recovery without stability doesn't last. Joseph McFee Center and Marina Recovery Housing provide transitional housing — a roof, a structure, and a community — while participants build the skills they need to stay housed permanently.</p>
+            <p>The Culinary Training Academy is the workforce development engine: a real culinary program with industry credentials, externship placements, and graduates working in San Francisco restaurants.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"I got my ServSafe certification at the Culinary Academy. I'm now a line cook at a restaurant in the Mission. I have a bank account. I have a routine. I have a life."</p>
+              <footer>— Culinary Training Academy graduate <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stepModal5" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-5); color:#fff; border:none">
+            <h5 class="modal-title">Independent Living</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>For participants who need more support before full independence, Railton Place and James Baldwin Place offer permanent supportive housing — a bridge between recovery housing and self-sufficiency, with ongoing case management and community.</p>
+            <p>This step is optional. Many participants transition directly to independent living. For those who need more time, it's here.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"Railton gave me two more years to get solid. I wasn't rushed. When I finally moved into my own place, I was ready. I haven't looked back."</p>
+              <footer>— Railton Place resident, now independently housed <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="stepModal6" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background:var(--stage-6); color:#1b1b1b; border:none">
+            <h5 class="modal-title">Independence &amp; Alumni Support</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Recovery doesn't end at program exit. The Alumni Support Network keeps graduates connected — peer mentorship, community events, access to resources when life gets hard. This is what makes 77% stick.</p>
+            <p>Graduates also become the most powerful voices in the room: living proof that The Way Out works, and advocates for the people still in it.</p>
+            <div class="step-modal-quote">
+              <p class="mb-1">"I went back to volunteer at Harbor Light last year. Seeing where I started and knowing where I am now — that's the whole story. I wanted someone else to see it too."</p>
+              <footer>— Alumni Support Network member, 4 years independent <span class="fpo-badge">FPO</span></footer>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <a href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" class="btn btn-danger w-100" target="_blank">Support The Way Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ WHO WE SERVE / WHY TSA ═══ -->
     <section class="py-5 bg-white">
       <div class="container py-lg-3">
         <div class="row g-4 align-items-start">
@@ -566,25 +866,53 @@
       </div>
     </section>
 
+    <!-- ═══ DONATE ═══ -->
     <section class="donate-section py-5">
       <div class="container py-lg-4 text-center">
         <div class="row justify-content-center">
           <div class="col-lg-9 col-xl-8">
             <h2 class="section-title">$31,000 changes a life. What does yours change?</h2>
-            <p class="lead mb-4">The Way Out costs $31,000 per person per year. That's what it takes to go from a tent to an apartment, from addiction to employment, from crisis to community. Your donation funds Treatment on Demand — real-time access to care for people in crisis right now.</p>
-            <a class="btn btn-danger btn-lg px-5" href="https://donate.salvationarmyusa.org" target="_blank" rel="noopener">Donate Now</a>
+            <p class="lead mb-2">The Way Out costs $31,000 per person per year — less than half of what San Francisco spends on chronic homelessness with no outcome guarantees. Your donation funds Treatment on Demand: real-time access to care for people in crisis right now.</p>
+            <p class="mb-4" style="opacity:.8; font-size:.95rem">Any amount matters. $31 is one day of care. $310 is ten days. $31,000 is a life changed.</p>
+            <a class="btn btn-danger btn-lg px-5" href="https://give.salvationarmy.org/give/411225/#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a>
             <p class="small mt-3 mb-0">Or give via stock or DAF: <a href="https://salarmy.us/StockDAF" target="_blank" rel="noopener">salarmy.us/StockDAF</a></p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ STAY INFORMED ═══ -->
+    <section class="stay-informed-strip" id="stay-informed">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5">
+            <h3 class="section-title text-two-blue">Not ready to give yet? Stay informed.</h3>
+            <p class="mb-0 text-muted">Get quarterly updates on The Way Out — real stories, outcomes data, and how your community is responding to the crisis.</p>
+          </div>
+          <div class="col-lg-7">
+            <form class="row g-2" action="https://sanfrancisco.salvationarmy.org/san_francisco/the-way-out---get-involved" method="get" target="_blank">
+              <div class="col-sm-8">
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address">
+              </div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-danger w-100">Keep Me Updated</button>
+              </div>
+              <div class="col-12">
+                <p class="text-muted mb-0" style="font-size:.8rem">No spam. Unsubscribe anytime. Your information stays with The Salvation Army.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER CTA STRIP ═══ -->
     <section class="py-4 border-top border-bottom">
       <div class="container">
         <div class="row justify-content-center text-center g-3 secondary-cta align-items-center">
           <div class="col-md-auto"><a href="https://thewayoutsf.wixsite.com/referrals/hl-referral" target="_blank" rel="noopener">Refer Someone</a></div>
           <div class="col-md-auto d-none d-md-block text-muted">|</div>
-          <div class="col-md-auto"><a href="https://sanfrancisco.salvationarmy.org/san_francisco/the-way-out---get-involved" target="_blank" rel="noopener">Sign Up for Updates</a></div>
+          <div class="col-md-auto"><a href="stories.html">Read Stories</a></div>
           <div class="col-md-auto d-none d-md-block text-muted">|</div>
           <div class="col-md-auto"><a href="https://x.com/thewayoutsf" target="_blank" rel="noopener">@thewayoutsf</a></div>
         </div>
